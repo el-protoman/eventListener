@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Handling Example</title>
+</head>
+
+<body>
+    <h1>Nicholas D'Agostino</h1>
+    <p>Welcome to my website! *UNDER CONSTRUCTION*</p>
+    <!-- <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" /> -->
+    <iframe src="https://giphy.com/embed/01o9WvoW1czSbqnTO9" width="480" height="270" frameBorder="0"
+        class="giphy-embed" allowFullScreen></iframe>
+    <p><a href="https://giphy.com/gifs/disneyplus-star-wars-starwars-the-book-of-boba-fett-01o9WvoW1czSbqnTO9">via
+            GIPHY</a></p>
+    <p>Here are some of my other project:</p>
+    <ul>
+        <li><a href="https://www.nicholasdagostino.co/projects">Portfolio</a></li>
+    </ul>
+    <h1>Event Listener</h1>
+    <button id="my-button" data-value="1" data-name="My Button">Click Me</button>
+
+    <script>
+        const button = document.getElementById('my-button');
+
+        // Define a callback function to log data attributes
+        function logDataAttributes(event) {
+            // Prevent default behavior of the event
+            event.preventDefault();
+
+            // Filter out methods and log data attributes
+            const dataAttributes = Object.entries(event)
+                .filter(([key, value]) => typeof value !== 'function')
+                .map(([key, value]) => `${key}: ${JSON.stringify(value)}`);
+
+            console.log(dataAttributes);
+        }
+
+        // Attach event listeners to the button
+        button.addEventListener('click', logDataAttributes);
+        button.addEventListener('mouseover', logDataAttributes);
+        button.addEventListener('mouseout', logDataAttributes);
+    </script>
+</body>
+
+<body>
+
+
+</body>
+
+</html>
